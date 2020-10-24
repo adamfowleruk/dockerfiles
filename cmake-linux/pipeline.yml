@@ -13,12 +13,12 @@ resources:
       password: ((docker-hub-password))
       repository: ((docker-hub-username))/cmake-linux
   
-  jobs:
-  - name: publish
-    public: true
-    serial: true
-    plan:
-    - get: dockerfiles
-    - put: cmake-linux
-      params:
-        build: dockerfiles/cmake-linux
+jobs:
+- name: publish
+  public: true
+  serial: true
+  plan:
+  - get: dockerfiles
+  - put: cmake-linux
+    params:
+      build: dockerfiles/cmake-linux
