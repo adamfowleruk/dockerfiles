@@ -1,0 +1,24 @@
+resources:
+  - name: dockerfiles
+    type: git
+    source:
+      uri: https://github.com/adamfowleruk/dockerfiles.git
+      branch: stem
+  
+  - name: cmake-linux
+    type: docker-image
+    source:
+      email: ((docker-hub-email))
+      username: ((docker-hub-username))
+      password: ((docker-hub-password))
+      repository: ((docker-hub-username))/cmake-linux
+  
+  jobs:
+  - name: publish
+    public: true
+    serial: true
+    plan:
+    - get: dockerfiles
+    - put: cmake-linux
+      params:
+        build: dockerfiles/cmake-linux
