@@ -9,6 +9,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # base packages
 RUN apt-get update && \
-  apt-get install -yy build-essential cmake make && \
+  apt-get install -yy build-essential cmake make git && \
   cmake --version
 RUN apt-get clean
