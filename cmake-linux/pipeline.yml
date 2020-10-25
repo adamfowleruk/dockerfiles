@@ -19,6 +19,7 @@ jobs:
   serial: true
   plan:
   - get: dockerfiles
+    trigger: true
   - put: cmake-linux
     params:
       build: dockerfiles/cmake-linux
